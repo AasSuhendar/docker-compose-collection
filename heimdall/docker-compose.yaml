@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  heimdall:
+    image: linuxserver/heimdall
+    container_name: heimdall
+    volumes:
+      - /home/debian/appdata/heimdall:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jakarta
+    ports:
+      - 8008:80
+      - 8443:443
+    restart: unless-stopped
