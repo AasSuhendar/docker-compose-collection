@@ -1,0 +1,17 @@
+version: '3.4'
+
+networks:
+  mktxp: {}
+
+services:
+  mktxp:
+    container_name: mktxp
+    image: ghcr.io/akpw/mktxp:latest
+    user: root
+    ports:
+    - "49090:49090"
+    volumes:
+      - '/opt/docker/monitoring-mikrotik-stack/mktxp/:/root/mktxp/'
+    networks:
+      mktxp: null
+    restart: unless-stopped 
